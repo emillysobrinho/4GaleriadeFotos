@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Carrossel de Galeria</title>
+</head>
+<body>
+  <div class="carousel-container">
+    <div class="carousel">
+      <div class="slide">
+        <img src="image1.jpg" alt="Imagem 1">
+      </div>
+      <div class="slide">
+        <img src="image2.jpg" alt="Imagem 2">
+      </div>
+      <div class="slide">
+        <img src="image3.jpg" alt="Imagem 3">
+      </div>
+      <!-- Adicione mais slides conforme necessário -->
+
+      <button class="prev-btn" onclick="prevSlide()">Anterior</button>
+      <button class="next-btn" onclick="nextSlide()">Próxima</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+<body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f4f4;
+}
+
+.carousel-container {
+  position: relative;
+}
+
+.carousel {
+  display: flex;
+  overflow: hidden;
+}
+
+.slide {
+  min-width: 100%;
+  transition: transform 0.5s ease;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+.prev-btn,
+.next-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.prev-btn {
+  left: 10px;
+}
+
+.next-btn {
+  right: 10px;
+}
+let currentIndex = 0;
+
+function showSlide(index) {
+  const slides = document.querySelector('.carousel');
+  const slideWidth = document.querySelector('.slide').clientWidth;
+
+  if (index >= slides.children.length) {
+    <currentIndex = 0;
+  } else if (index < 0) {
+    currentIndex = slides.children.length - 1;
+  } else {
+    currentIndex = index;
+  }
+
+  slides.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+}
+
+function prevSlide() {
+  showSlide(currentIndex - 1);
+}
+
+function nextSlide() {
+  showSlide(currentIndex + 1);
+}
+>
